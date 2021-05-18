@@ -40,6 +40,10 @@ h2 {
     color: #fff;
 }
 
+ul {
+    color: black;
+}
+
 p {
     line-height: 1.6em;
     color: #eee;
