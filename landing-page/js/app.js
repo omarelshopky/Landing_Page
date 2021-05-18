@@ -17,7 +17,7 @@
  * Define Global Variables
  * 
 */
-
+const fragment = document.createDocumentFragment();
 
 /**
  * End Global Variables

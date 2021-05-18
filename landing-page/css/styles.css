@@ -196,7 +196,14 @@ section:nth-of-type(3n + 1) .landing__container::after {
 section.your-active-class {
     background: rgb(0, 0, 0);
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 100%);
+
 }
+
+.your-active-class h2 {
+    font-size: 3.2em;
+    border-bottom: 4px solid black;
+}
+
 
 section.your-active-class .landing__container::before {
     opacity: 1;
