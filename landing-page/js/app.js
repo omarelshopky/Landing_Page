@@ -39,6 +39,7 @@ function addSectionToFragment(name, ID){
     const listTag = document.createElement('li');
     listTag.textContent = name;
     listTag.id = ID + 'nav';
+    listTag.addEventListener('click', scrollDownToSection);
     if(listTag.id == 'section1nav'){
         listTag.classList.add(activeClass);
     }
@@ -81,6 +82,12 @@ function changeSectionActivite(section){
 }
 
 
+function scrollDownToSection(event){
+    const listItemId = event.target.id;
+    const targetedSection = document.getElementById(listItemId.substring(0, listItemId.length - 3));
+    targetedSection.scrollIntoView({behavior: "smooth"});
+}
+
 /**
  * End Helper Functions
  * Begin Main Functions
@@ -111,16 +118,12 @@ function CheckActivite(){
     }
 }
 
-// Scroll to anchor ID using scrollTO event
-
 
 /**
  * End Main Functions
  * Begin Events
  * 
 */
-
-// Scroll to section on link click
 
 // Set sections as active
 document.addEventListener('scroll', CheckActivite);
