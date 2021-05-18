@@ -35,7 +35,7 @@ const activeClass = 'active';
  * @param {string} name Section name will be shown in navBar
  * @param {string} ID Section ID to create section navList ID
  */
-function addSectionToFragment(name, ID){
+function addSectionToFragment(name, ID) {
     const listTag = document.createElement('li');
     listTag.textContent = name;
     listTag.id = ID + 'nav';
@@ -109,6 +109,8 @@ buildNavBar(sections);
 
 // Add class 'active' to section when near top of viewport
 function CheckActivite(){
+    if(navBar.style.display != 'block')
+        navBar.style.display = 'block';
     for(const section of sections){
         if(isInViewport(section)){
             changeSectionActivite(section);
@@ -116,6 +118,11 @@ function CheckActivite(){
             continue;
         }
     }
+    // Hide navBar if user not scrolling at the moment
+    clearTimeout();
+    setTimeout(function(){
+        navBar.style.display = 'none';
+    }, 5000);
 }
 
 
