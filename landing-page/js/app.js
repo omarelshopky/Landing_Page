@@ -39,20 +39,12 @@ function addSectionToFragment(name, ID){
     const listTag = document.createElement('li');
     listTag.textContent = name;
     listTag.id = ID + 'nav';
+    if(listTag.id == 'section1nav'){
+        listTag.classList.add(activeClass);
+    }
     fragment.appendChild(listTag);
 }
 
-/**
- * @description build Navbar according to sections in html
- */
-function buildNavBar(){
-    for(const section of sections){
-        const secName = section.getAttribute('data-nav');
-        const secID = section.getAttribute('id');
-        addSectionToFragment(secName, secID);
-    }
-    navBar.appendChild(fragment);
-}
 
 /**
  * @description check if the element in Viewport or not
@@ -69,17 +61,46 @@ function isInViewport(element) {
     );
 }
 
+
+/**
+ * @description add active class to this section and remove it from the last one 
+ * @param {*} section the one want to be active
+ */
 function changeSectionActivite(section){
     if(lastActiveSection.id != section.id){
         lastActiveSection.classList.toggle(activeClass);
+        document.getElementById(lastActiveSection.id + 'nav').classList.toggle(activeClass);
     }else{/* Do Nothing */}
 
     if(!section.classList.contains(activeClass)){
         section.classList.toggle(activeClass);
+        document.getElementById(section.id + 'nav').classList.toggle(activeClass);
     }else{/* Do Nothing */}
+    
     lastActiveSection = section;
 }
 
+
+/**
+ * End Helper Functions
+ * Begin Main Functions
+ * 
+*/
+
+// build the nav
+function buildNavBar(){
+    for(const section of sections){
+        const secName = section.getAttribute('data-nav');
+        const secID = section.getAttribute('id');
+        addSectionToFragment(secName, secID);
+    }
+    navBar.appendChild(fragment);
+}
+
+buildNavBar(sections);
+
+
+// Add class 'active' to section when near top of viewport
 function CheckActivite(){
     for(const section of sections){
         if(isInViewport(section)){
@@ -90,18 +111,6 @@ function CheckActivite(){
     }
 }
 
-/**
- * End Helper Functions
- * Begin Main Functions
- * 
-*/
-
-// build the nav
-buildNavBar(sections);
-
-// Add class 'active' to section when near top of viewport
-
-
 // Scroll to anchor ID using scrollTO event
 
 
@@ -110,8 +119,6 @@ buildNavBar(sections);
  * Begin Events
  * 
 */
-
-// Build menu 
 
 // Scroll to section on link click
 
