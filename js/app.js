@@ -20,6 +20,7 @@
 const fragment = document.createDocumentFragment();
 const navBar = document.getElementById('navbar__list');
 const sections = [...document.querySelectorAll('section')];
+const ScrollUpButton = document.getElementById("ScrollUpButton");
 let lastActiveSection = sections[0];
 const activeClass = 'active';
 
@@ -82,10 +83,21 @@ function changeSectionActivite(section){
 }
 
 
+// Scroll down until reach active section
 function scrollDownToSection(event){
     const listItemId = event.target.id;
     const targetedSection = document.getElementById(listItemId.substring(0, listItemId.length - 3));
     targetedSection.scrollIntoView({behavior: "smooth"});
+}
+
+
+// Show the button when the user scrolls down 1700px from the top of the document
+function activeScrollUpButton() {
+    if (document.body.scrollTop > 1700 || document.documentElement.scrollTop > 1700) {
+      ScrollUpButton.style.display = "block";
+    } else {
+      ScrollUpButton.style.display = "none";
+    }
 }
 
 /**
@@ -95,16 +107,15 @@ function scrollDownToSection(event){
 */
 
 // build the nav
-function buildNavBar(){
+(function buildNavBar(){
     for(const section of sections){
         const secName = section.getAttribute('data-nav');
         const secID = section.getAttribute('id');
         addSectionToFragment(secName, secID);
     }
     navBar.appendChild(fragment);
-}
+})(); //IIFE (Immediately Invoked Function Expression)
 
-buildNavBar(sections);
 
 
 // Add class 'active' to section when near top of viewport
@@ -118,11 +129,14 @@ function CheckActivite(){
             continue;
         }
     }
+
     // Hide navBar if user not scrolling at the moment
     clearTimeout();
     setTimeout(function(){
         navBar.style.display = 'none';
-    }, 5000);
+    }, 10000);
+
+    activeScrollUpButton()
 }
 
 
@@ -134,4 +148,12 @@ function CheckActivite(){
 
 // Set sections as active
 document.addEventListener('scroll', CheckActivite);
+
+
+// When the user clicks on the button, scroll to the top of the document
+ScrollUpButton.addEventListener('click', function(){
+    document.getElementById('pageStart').scrollIntoView({behavior: "smooth"});
+});
+
+
 
