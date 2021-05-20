@@ -2,8 +2,6 @@
 
 ## Table of Contents
 
-
-- [Table of Contents](#table-of-contents)
  - [Introduction](#introduction)
  - [Project Summary](#project-summary)
  - [What will be done](#what-will-be-done)
