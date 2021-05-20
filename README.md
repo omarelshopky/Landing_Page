@@ -1,4 +1,5 @@
 # Landing Page Project
+![Project Video](https://media.giphy.com/media/Px1FBPWfbHb3s1rqAD/giphy.gif)
 
 ## Table of Contents
 
