@@ -2,13 +2,13 @@
 
 ## Table of Contents
 
-- [Landing Page Project](#landing-page-project)
-  - [Table of Contents](#table-of-contents)
-  - [Introduction](#introduction)
-  - [Project Summary](#project-summary)
-  - [What will be done](#what-will-be-done)
-  - [Objective](#objective)
-  - [Try It](#try-it)
+
+- [Table of Contents](#table-of-contents)
+ - [Introduction](#introduction)
+ - [Project Summary](#project-summary)
+ - [What will be done](#what-will-be-done)
+ - [Objective](#objective)
+ - [Try It](#try-it)
 
 
 ## Introduction
