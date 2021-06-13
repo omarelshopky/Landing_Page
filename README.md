@@ -29,6 +29,7 @@ Hide fixed navigation bar while not scrolling (it should still be present on pag
 combining your skills in HTML, CSS, and JavaScript into a large project. Aside from solidifying your skills with these three technologies, you’ll discover how best to combine them in a complex application.
 
 ## Try It
+You can try it on codepen.io from this [link](https://codepen.io/omarelshopky/pen/jOBQrNv), Or by doing this steps:
 * Clone the repo from [here](https://github.com/omarhesham2/Front-End_Web_Development_Professional_Nanodegree)
   ```bash
   git clone https://github.com/omarhesham2/Front-End_Web_Development_Professional_Nanodegree.git
